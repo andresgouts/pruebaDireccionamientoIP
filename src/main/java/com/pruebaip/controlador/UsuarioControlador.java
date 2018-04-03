@@ -2,27 +2,22 @@ package com.pruebaip.controlador;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prueba.dto.PerfilDTO;
 import com.prueba.dto.UsuarioDTO;
-import com.pruebaip.dominio.PerfilDominio;
 import com.pruebaip.dominio.UsuarioDominio;
 import com.pruebaip.services.PerfilService;
 import com.pruebaip.services.UsuarioService;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200", "http://127.0.0.1:8080"})
 @RequestMapping("/usuario")
 public class UsuarioControlador {
 	
@@ -31,12 +26,6 @@ public class UsuarioControlador {
 	
 	@Autowired
 	UsuarioService usuarioService;
-	
-	@GetMapping("/perfiles")
-	public List<PerfilDTO> getPerfiles() {
-		PerfilDominio perfilDominio = new PerfilDominio(perfilService);
-		return perfilDominio.getPerfiles();
-	}
 	
 	@GetMapping("/usuarios")
 	public List<UsuarioDTO> getUsuairos() {
@@ -51,7 +40,7 @@ public class UsuarioControlador {
 	}
 	
 	@PostMapping("/crear")
-	public UsuarioDTO crearUsuario(@Valid @RequestBody UsuarioDTO usuario) {
+	public UsuarioDTO crearUsuario(@RequestBody UsuarioDTO usuario) {
 		UsuarioDominio usuarioDominio = new UsuarioDominio(usuarioService);
 		return usuarioDominio.crearUsuario(usuario);
 	}

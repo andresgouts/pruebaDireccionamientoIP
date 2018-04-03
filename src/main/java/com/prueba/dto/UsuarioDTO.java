@@ -15,7 +15,6 @@ public class UsuarioDTO implements Serializable {
 	
 	public UsuarioDTO(Long idUsuario, String loginUsuario, String nombreUsuario, String emailUsuario,
 			String cargoUsuario, PerfilDTO perfil) {
-		super();
 		this.idUsuario = idUsuario;
 		this.loginUsuario = loginUsuario;
 		this.nombreUsuario = nombreUsuario;
@@ -27,8 +26,6 @@ public class UsuarioDTO implements Serializable {
 	public UsuarioDTO() {
 		//Constructor
 	}
-
-
 
 	public Long getIdUsuario() {
 		return idUsuario;

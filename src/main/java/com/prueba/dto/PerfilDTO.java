@@ -10,12 +10,17 @@ public class PerfilDTO implements Serializable {
 	private String descripcionPerfil;
 	
 	public PerfilDTO(Long idPerfil, String codigoPerfil, String descripcionPerfil) {
-		super();
 		this.idPerfil = idPerfil;
 		this.codigoPerfil = codigoPerfil;
 		this.descripcionPerfil = descripcionPerfil;
 	}
 	
+	public PerfilDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Long getIdPerfil() {
 		return idPerfil;
 	}

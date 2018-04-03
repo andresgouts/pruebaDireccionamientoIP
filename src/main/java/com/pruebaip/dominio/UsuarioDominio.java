@@ -3,6 +3,7 @@ package com.pruebaip.dominio;
 import java.util.List;
 
 import com.prueba.dto.UsuarioDTO;
+import com.pruebaip.exception.UsuarioException;
 import com.pruebaip.services.UsuarioService;
 
 public class UsuarioDominio {
@@ -18,12 +19,14 @@ public class UsuarioDominio {
 	}
 	
 	public UsuarioDTO getUsuarioById(Long idUsuario) {
-		return this.usuarioService.getUsuarioByIdUsuario(idUsuario);
+		UsuarioDTO usuario = this.usuarioService.getUsuarioByIdUsuario(idUsuario);
+		if(usuario == null){
+			throw new UsuarioException("No existe el usuario seleccionado");
+		}
+		return usuario;
 	}
 	
 	public UsuarioDTO crearUsuario(UsuarioDTO usuario) {
 		return this.usuarioService.crearUsuario(usuario);
 	}
-	
-
 }

@@ -16,6 +16,7 @@ import com.pruebaip.repositorio.SedeCompaniaRepositorio;
 import com.pruebaip.services.InicioServices;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200", "http://127.0.0.1:8080"})
 @RequestMapping("/inicio")
 public class InicioControlador {
 	

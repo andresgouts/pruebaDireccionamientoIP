@@ -5,6 +5,10 @@ import com.prueba.dto.UsuarioDTO;
 import com.pruebaip.entity.UsuarioEntity;
 
 public class UsuarioFactory {
+	
+	private UsuarioFactory() {
+		throw new IllegalStateException("UsuarioFactory class");
+	}
 
 	public static UsuarioEntity convertirEntity (UsuarioDTO dto) {
 		UsuarioEntity usuario = new UsuarioEntity();
@@ -12,7 +16,8 @@ public class UsuarioFactory {
 		usuario.setEmailUsuario(dto.getEmailUsuario());
 		usuario.setIdUsuario(dto.getIdUsuario());
 		usuario.setLoginUsuario(dto.getLoginUsuario());
-		usuario.setNombreUsuario(dto.getNombreUsuario());		
+		usuario.setNombreUsuario(dto.getNombreUsuario());
+		usuario.setPerfil(PerfilFactory.convertirEntity(dto.getPerfil()));
 		return usuario;
 	}
 	
